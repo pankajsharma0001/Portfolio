@@ -1,0 +1,33 @@
+{
+  "name": "portfolio",
+  "description": "Portfolio of Prashant",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cheerio": "^1.0.0",
+    "lottie-react": "^2.4.0",
+    "next": "^14.2.15",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-fast-marquee": "^1.6.2",
+    "react-icons": "^4.11.0",
+    "react-toastify": "^10.0.4",
+    "react-typed": "^2.0.12",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "postcss": "latest",
+    "sass": "^1.69.5",
+    "tailwindcss": "latest"
+  }
+}
