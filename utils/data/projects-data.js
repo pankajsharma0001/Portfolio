@@ -14,6 +14,13 @@ import word_drop_game_over from '/public/projects/word_drop_game_over.png';
 import word_drop_menu from '/public/projects/word_drop_menu.png';
 import word_drop_playing from '/public/projects/word_drop_playing.png';
 import currency_converter from '/public/projects/currency_converter.png';
+import flayy_bird from '/public/projects/flappy_bird.png';
+import ecomplain_admin from '/public/projects/ecomplain_admin.png';
+import ecomplain_login from '/public/projects/ecomplain_login.png';
+import ecomplain_user_submit from '/public/projects/ecomplain_user_submit.png';
+import ecomplain_user_view from '/public/projects/ecomplain_user_view.png';
+import start from '/public/projects/tic-tac-toe_start.png';
+import end from '/public/projects/tic-tac-toe_end.png';
 
 export const projectsData = [
     {
@@ -63,7 +70,7 @@ export const projectsData = [
         tools: ['MongoDB', 'Tailwind', 'Javascript', 'Next js'],
         code: 'https://github.com/pankajsharma0001/eComplaint-Automation-System',
         demo: 'https://github.com/pankajsharma0001/eComplaint-Automation-System',
-        images: [currency_converter],
+        images: [ecomplain_login, ecomplain_user_submit, ecomplain_user_view, ecomplain_admin],
         role: 'Game Developer',
     },
     {
@@ -82,6 +89,15 @@ export const projectsData = [
         tools: ['Python'],
         code: 'https://github.com/pankajsharma0001/Flappy-bird',
         demo: 'https://github.com/pankajsharma0001/Flappy-bird',
-        images: [currency_converter],
+        images: [flayy_bird],
+    },
+    {
+        id: 8,
+        name: 'Tic Tac Toe',
+        description: "A simple Tic Tac Toe game built using Html, CSS, and JavaScript. The game allows two players to take turns marking X and O on a 3x3 grid. The first player to get three of their marks in a row (horizontally, vertically, or diagonally) wins the game. If all nine squares are filled without a winner, the game ends in a draw.",
+        tools: ['Javascript', 'HTML', 'CSS'],
+        code: 'https://github.com/pankajsharma0001/Tic-Tac-Toe',
+        demo: 'https://pankajsharma0001.github.io/Tic-Tac-Toe/',
+        images: [start, end],
     }
 ];
