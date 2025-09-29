@@ -1,18 +1,19 @@
-import codewrite from '/public/projects/codeEditor.png';
-import codewrite2Img1 from '/public/projects/codeWrite2Img1.jpg';
-import codewrite2Img2 from '/public/projects/codeWrite2Img2.png';
-import codewrite2Img3 from '/public/projects/codeWrite2Img3.png';
-import codewrite2Img4 from '/public/projects/codeWrite2Img4.png';
-import codewrite2Img5 from '/public/projects/codeWrite2Img5.png';
-import game from '/public/projects/game.webp';
+import two from '/public/projects/2048.png';
 import menu from '/public/projects/menu.png';
-import sudoku from '/public/projects/sudoku.png';
-import uurl from '/public/projects/uurl.webp';
-import bouncygame from '/public/projects/bouncygame.png';
-import bouncymenu from '/public/projects/bouncymenu.png';
-import mdeditor from '/public/projects/mdeditor.png';
-import rubix from '/public/projects/rubix.png';
-import rubixrotate from '/public/projects/rubixrotate.png';
+import note_manager_dashboard from '/public/projects/note_manager_dashboard.png';
+import note_manager_login from '/public/projects/note_manager_login.png';
+import note_manager_notes from '/public/projects/note_manager_notes.png';
+import note_manager_share from '/public/projects/note_manager_share.png';
+import ping_pong from '/public/projects/ping_pong.png';
+import tetris from '/public/projects/tetris.png';
+import typing_game_dashboard from '/public/projects/typing_game_dashboard.png';
+import typing_game_login from '/public/projects/typing_game_login.png';
+import typing_game_register from '/public/projects/typing_game_register.png';
+import typing_game_stats from '/public/projects/typing_game_stats.png';
+import word_drop_game_over from '/public/projects/word_drop_game_over.png';
+import word_drop_menu from '/public/projects/word_drop_menu.png';
+import word_drop_playing from '/public/projects/word_drop_playing.png';
+import currency_converter from '/public/projects/currency_converter.png';
 
 export const projectsData = [
     {
@@ -23,7 +24,7 @@ export const projectsData = [
         role: 'Game Developer',
         code: 'https://github.com/pankajsharma0001/typing-game',
         demo: 'https://fast-typer-pro.vercel.app',
-        images: [codewrite2Img1, codewrite2Img2, codewrite2Img3, codewrite2Img4, codewrite2Img5],
+        images: [typing_game_login, typing_game_register, typing_game_dashboard, typing_game_stats],
     },
     {
         id: 2,
@@ -33,7 +34,7 @@ export const projectsData = [
         role: 'Game Developer',
         code: 'https://github.com/pankajsharma0001/NOTE-MANAGER',
         demo: 'https://jiteshdeo.vercel.app',
-        images: [codewrite, mdeditor],
+        images: [note_manager_login, note_manager_dashboard, note_manager_notes, note_manager_share],
     },
     {
         id: 3,
@@ -43,7 +44,7 @@ export const projectsData = [
         code: 'https://github.com/pankajsharma0001/Game-Package',
         role: 'Full Stack Developer',
         demo: 'https://github.com/pankajsharma0001/Game-Package/releases/tag/v1.0',
-        images: [sudoku],
+        images: [menu, ping_pong, tetris, two],
     },
     {
         id: 4,
@@ -52,7 +53,7 @@ export const projectsData = [
         tools: ['C', 'C++'],
         code: 'https://github.com/pankajsharma0001/Word-Drop',
         demo: 'https://github.com/pankajsharma0001/Word-Drop/releases/tag/v1.2',
-        images: [game, menu],
+        images: [word_drop_menu, word_drop_playing, word_drop_game_over],
         role: 'Game Developer',
     },
     {
@@ -62,7 +63,7 @@ export const projectsData = [
         tools: ['MongoDB', 'Tailwind', 'Javascript', 'Next js'],
         code: 'https://github.com/pankajsharma0001/eComplaint-Automation-System',
         demo: 'https://github.com/pankajsharma0001/eComplaint-Automation-System',
-        images: [uurl],
+        images: [currency_converter],
         role: 'Game Developer',
     },
     {
@@ -72,7 +73,7 @@ export const projectsData = [
         tools: ['Javascript', 'HTML', 'CSS'],
         code: 'https://github.com/pankajsharma0001/Currency-Converter',
         demo: 'https://pankajsharma0001.github.io/Currency-Converter/',
-        images: [rubix, rubixrotate],
+        images: [currency_converter],
     },
     {
         id: 7,
@@ -81,6 +82,6 @@ export const projectsData = [
         tools: ['Python'],
         code: 'https://github.com/pankajsharma0001/Flappy-bird',
         demo: 'https://github.com/pankajsharma0001/Flappy-bird',
-        images: [bouncygame, bouncymenu],
+        images: [currency_converter],
     }
 ];
