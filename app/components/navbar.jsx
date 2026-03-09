@@ -1,42 +1,76 @@
-// @flow strict
+"use client";
 import { PORTFOLIO_NAME } from "@/utils/data/navbarData";
 import Link from "next/link";
+import { useState } from "react";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
 import "./navbar.css";
 
-function Navbar() {
-  return (
-    <nav className="bg-transparent">
-      <div className="flex items-center justify-between py-5">
-        <div className="flex flex-shrink-0 items-center">
-          <Link
-            href="/"
-            className=" text-[#16f2b3] text-3xl font-bold">
-            {PORTFOLIO_NAME}
-          </Link>
-        </div>
+const NAV_LINKS = [
+  { href: "/#about", label: "About" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#education", label: "Education" },
+  { href: "/#contact", label: "Contact" },
+];
 
-        <ul className="mt-4 flex h-screen max-h-0 w-full flex-col items-start text-sm opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-1 md:border-0 md:opacity-100" id="navbar-default">
-          <li className="nav-item text-white hover:text-[#16f2b3]">
-            <Link className=" block px-4 py-2 no-underline outline-none hover:no-underline" href="/#about">
-              <div className="text-sm transition-colors duration-300">ABOUT</div>
-            </Link>
-          </li>
-          <li className="nav-item text-white hover:text-[#16f2b3]">
-            <Link className=" block px-4 py-2 no-underline outline-none hover:no-underline" href="/#experience"><div className="text-sm  transition-colors duration-300 ">EXPERIENCE</div></Link>
-          </li>
-          <li className="nav-item text-white hover:text-[#16f2b3]">
-            <Link className=" block px-4 py-2 no-underline outline-none hover:no-underline" href="/#skills"><div className="text-sm transition-colors duration-300">SKILLS</div></Link>
-          </li>
-          <li className="nav-item text-white hover:text-[#16f2b3]">
-            <Link className=" block px-4 py-2 no-underline outline-none hover:no-underline" href="/#education"><div className="text-sm  transition-colors duration-300">EDUCATION</div></Link>
-          </li>
-          <li className="nav-item text-white hover:text-[#16f2b3]">
-            <Link className=" block px-4 py-2 no-underline outline-none hover:no-underline" href="/#projects"><div className="text-sm  transition-colors duration-300">PROJECTS</div></Link>
-          </li>
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav className="sticky top-0 z-50 -mx-6 sm:-mx-12 px-6 sm:px-12 py-4 backdrop-blur-xl bg-[#0d1224]/70 border-b border-white/5 transition-all duration-300">
+      <div className="flex items-center justify-between max-w-[92rem] mx-auto">
+        <Link
+          href="/"
+          className="text-2xl font-bold tracking-tight gradient-text hover:opacity-80 transition-opacity"
+        >
+          {PORTFOLIO_NAME}
+        </Link>
+
+        {/* Desktop nav */}
+        <ul className="hidden md:flex items-center gap-1">
+          {NAV_LINKS.map((link) => (
+            <li key={link.href} className="nav-item">
+              <Link
+                href={link.href}
+                className="block px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300 no-underline"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden text-gray-300 hover:text-white transition-colors p-2"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
+          }`}
+      >
+        <div className="glass-card p-4 space-y-1">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="block px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200 no-underline"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;

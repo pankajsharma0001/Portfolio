@@ -7,16 +7,15 @@ import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
 
 export default async function Home() {
-
-return (
-  <>
-    <HeroSection />
-    <AboutSection />
-    <Experience />
-    <Skills />
-    <Projects />
-    <Education />
-    <ContactSection />
-  </>
-)
-};
+  return (
+    <div className="bg-mesh-gradient">
+      <HeroSection />
+      <AboutSection />
+      <Experience />
+      <Skills />
+      <Projects />
+      <Education />
+      <ContactSection />
+    </div>
+  );
+}

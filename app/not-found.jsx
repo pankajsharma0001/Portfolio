@@ -1,21 +1,23 @@
-// @flow strict
-
 import Link from "next/link";
 
-function page() {
+function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-center">
-      <h1 className="text-6xl font-bold text-gray-800 dark:text-gray-100">404</h1>
-      <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">Page Not Found</p>
-      <p className="mt-2 text-gray-500 dark:text-gray-400">Sorry, the page you are looking for does not exist.</p>
-      <Link className="mt-5 flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold"
-        role="button" 
+    <div className="flex flex-col items-center justify-center min-h-[80vh] text-center relative">
+      <div className="gradient-orb w-64 h-64 bg-violet-600/15 top-1/4 left-1/4" />
+      <div className="gradient-orb w-48 h-48 bg-pink-500/10 bottom-1/4 right-1/4" />
+
+      <h1 className="text-8xl md:text-9xl font-bold gradient-text relative z-10">404</h1>
+      <p className="mt-4 text-xl text-gray-300 relative z-10">Page Not Found</p>
+      <p className="mt-2 text-gray-500 relative z-10">Sorry, the page you are looking for does not exist.</p>
+      <Link
+        className="btn-premium mt-8 relative z-10"
+        role="button"
         href="/"
       >
         Go to Home
       </Link>
     </div>
   );
-};
+}
 
-export default page;
+export default NotFound;

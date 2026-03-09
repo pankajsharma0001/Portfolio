@@ -3,92 +3,77 @@ import { personalData } from "@/utils/data/personal-data";
 import Link from "next/link";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
-import { FaFacebook} from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoGithub, IoMdCall } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
 import lottieFile from "/public/lottie/contact.json";
 import dynamic from "next/dynamic";
 import { contactsData } from "@/utils/data/contactsData";
-const AnimationLottie= dynamic(()=>import('../../helper/animation-lottie'),{loading:()=>null,ssr:false});
+
+const AnimationLottie = dynamic(() => import('../../helper/animation-lottie'), { loading: () => null, ssr: false });
 
 function ContactSection() {
 	return (
-		<div id="contact" className="my-12 lg:my-16 relative mt-24 text-white">
-			<div className="flex justify-center my-5 lg:py-8">
-				<div className="flex  items-center">
-					<span className="w-24 h-[2px] bg-[#1a1443]"></span>
-					<span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md flex gap-2">
-						Contact{" "}
-						<span className="hidden md:block">Information</span>
+		<div id="contact" className="relative py-20 lg:py-28 text-white">
+			{/* Background orb */}
+			<div className="gradient-orb w-64 h-64 bg-cyan-400/8 bottom-0 right-0" />
+
+			<div className="flex justify-center mb-12">
+				<h2 className="section-title">
+					<span className="bg-gradient-to-r from-violet-500 to-pink-500 bg-clip-text text-transparent">
+						Contact
 					</span>
-					<span className="w-24 h-[2px] bg-[#1a1443]"></span>
+				</h2>
+			</div>
+
+			<div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 items-center">
+				<div className="hidden vsm:block">
+					<AnimationLottie animationPath={lottieFile} />
 				</div>
-			</div>
 
-			<div className="hidden lg:flex flex-col items-center absolute bottom-24 -right-8">
-				<span className="h-36 w-[2px] bg-[#1a1443]"></span>
-				<span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
-					CONTACT
-				</span>
-			</div>
-
-			<div className="grid grid-cols-1 lg:grid-cols-2 grid-flow-col-dense lg:gap-16 items-center ">
-        <div className="hidden vsm:block">
-				<AnimationLottie animationPath={lottieFile} />
-        </div>
 				<div className="lg:w-3/4">
-					<div className="flex flex-col gap-5 lg:gap-9">
-						<p className="text-sm md:text-xl flex items-center gap-3">
+					<div className="glass-card p-8 space-y-6">
+						<p className="text-sm md:text-lg flex items-center gap-4">
 							<MdAlternateEmail
-								className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+								className="bg-white/10 p-2 rounded-full hover:bg-accent/20 hover:text-accent hover:scale-110 transition-all duration-300 text-gray-300 cursor-pointer flex-shrink-0"
 								size={36}
 							/>
-							<a href={`mailto:${contactsData.email}`}>
+							<a href={`mailto:${contactsData.email}`} className="hover:text-accent transition-colors">
 								{contactsData.email}
 							</a>
 						</p>
-						{contactsData.phone && <p className="text-sm md:text-xl flex items-center gap-3">
-							<IoMdCall
-								className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-								size={36}
-							/>
-							<span>{contactsData.phone}</span>
-						</p>
-						}
-						<p className="text-sm md:text-xl flex items-center gap-3">
+						{contactsData.phone && (
+							<p className="text-sm md:text-lg flex items-center gap-4">
+								<IoMdCall
+									className="bg-white/10 p-2 rounded-full hover:bg-accent/20 hover:text-accent hover:scale-110 transition-all duration-300 text-gray-300 cursor-pointer flex-shrink-0"
+									size={36}
+								/>
+								<span>{contactsData.phone}</span>
+							</p>
+						)}
+						<p className="text-sm md:text-lg flex items-center gap-4">
 							<CiLocationOn
-								className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+								className="bg-white/10 p-2 rounded-full hover:bg-accent/20 hover:text-accent hover:scale-110 transition-all duration-300 text-gray-300 cursor-pointer flex-shrink-0"
 								size={36}
 							/>
 							<span>{personalData.address}</span>
 						</p>
 					</div>
-					<div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
-						<Link target="_blank" href={personalData.github}>
-							<IoLogoGithub
-								className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-								size={48}
-							/>
-						</Link>
-						<Link target="_blank" href={personalData.linkedIn}>
-							<BiLogoLinkedin
-								className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-								size={48}
-							/>
-						</Link>
-						<Link target="_blank" href={personalData.twitter}>
-							<FaXTwitter
-								className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-								size={48}
-							/>
-						</Link>
-						<Link target="_blank" href={personalData.facebook}>
-							<FaFacebook
-								className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-								size={48}
-							/>
-						</Link>
+
+					<div className="mt-10 flex items-center gap-4">
+						{[
+							{ href: personalData.github, icon: <IoLogoGithub size={22} /> },
+							{ href: personalData.linkedIn, icon: <BiLogoLinkedin size={22} /> },
+							{ href: personalData.twitter, icon: <FaXTwitter size={20} /> },
+							{ href: personalData.facebook, icon: <FaFacebook size={20} /> },
+						].map((social, idx) => (
+							<Link key={idx} target="_blank" href={social.href}>
+								<div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 hover:border-violet-500/50 hover:scale-110 transition-all duration-300 cursor-pointer">
+									{social.icon}
+								</div>
+							</Link>
+						))}
 					</div>
 				</div>
 			</div>
