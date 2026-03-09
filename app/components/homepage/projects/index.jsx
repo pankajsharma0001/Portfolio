@@ -3,6 +3,7 @@ import SingleProject from './single-project';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 import { personalData } from '@/utils/data/personal-data';
+import SectionReveal from '../../helper/section-reveal';
 
 const Projects = () => {
   return (
@@ -11,14 +12,16 @@ const Projects = () => {
       <div className="gradient-orb w-80 h-80 bg-pink-500/10 -top-20 -left-20" />
 
       <div className="sticky top-10">
-        <div className="flex items-center justify-start relative">
-          <h2 className="section-title !gap-6">
-            <span className="bg-gradient-to-r from-violet-500 to-pink-500 bg-clip-text text-transparent">
-              Projects
-            </span>
-          </h2>
-          <span className="flex-1 h-[1px] ml-6 bg-gradient-to-r from-violet-500/30 to-transparent"></span>
-        </div>
+        <SectionReveal>
+          <div className="flex items-center justify-start relative">
+            <h2 className="section-title !gap-6">
+              <span className="bg-gradient-to-r from-violet-500 to-pink-500 bg-clip-text text-transparent font-display">
+                Projects
+              </span>
+            </h2>
+            <span className="flex-1 h-[1px] ml-6 bg-gradient-to-r from-violet-500/30 to-transparent"></span>
+          </div>
+        </SectionReveal>
       </div>
 
       <div className="pt-16">
@@ -29,24 +32,26 @@ const Projects = () => {
               key={index}
               className="sticky-card w-full mx-auto max-w-2xl sticky col-span-12 lg:col-span-6"
             >
-              <div className="box-border flex items-center justify-center rounded-xl transition-all duration-500">
-                <SingleProject project={project} />
+              <div className="box-border flex items-center justify-center rounded-xl">
+                <SingleProject project={project} featured={index === 0} />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="flex justify-center mt-12 lg:mt-16">
-        <Link
-          className="btn-premium"
-          role="button"
-          href={personalData.github}
-        >
-          <span>View More</span>
-          <FaArrowRight size={16} />
-        </Link>
-      </div>
+      <SectionReveal delay={200}>
+        <div className="flex justify-center mt-12 lg:mt-16">
+          <Link
+            className="btn-premium"
+            role="button"
+            href={personalData.github}
+          >
+            <span>View More</span>
+            <FaArrowRight size={16} />
+          </Link>
+        </div>
+      </SectionReveal>
     </div>
   );
 };

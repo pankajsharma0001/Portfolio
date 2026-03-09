@@ -8,6 +8,8 @@ import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
 import TypewriterEffect from "./TypewriterEffect";
+import AnimatedCounter from "../../helper/animated-counter";
+import SectionReveal from "../../helper/section-reveal";
 
 function HeroSection() {
   return (
@@ -24,7 +26,7 @@ function HeroSection() {
             Available for opportunities
           </div>
 
-          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
+          <h1 className="text-3xl font-display font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
             Hello <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
             <br />
             I&apos;m{' '}
@@ -37,17 +39,18 @@ function HeroSection() {
 
           <div className="my-10 flex items-center gap-4">
             {[
-              { href: personalData.github, icon: <BsGithub size={20} /> },
-              { href: personalData.linkedIn, icon: <BsLinkedin size={20} /> },
-              { href: personalData.facebook, icon: <FaFacebook size={20} /> },
-              ...(personalData.leetcode ? [{ href: personalData.leetcode, icon: <SiLeetcode size={20} /> }] : []),
-              { href: personalData.twitter, icon: <FaTwitterSquare size={20} /> },
+              { href: personalData.github, icon: <BsGithub size={20} />, label: "GitHub" },
+              { href: personalData.linkedIn, icon: <BsLinkedin size={20} />, label: "LinkedIn" },
+              { href: personalData.facebook, icon: <FaFacebook size={20} />, label: "Facebook" },
+              ...(personalData.leetcode ? [{ href: personalData.leetcode, icon: <SiLeetcode size={20} />, label: "LeetCode" }] : []),
+              { href: personalData.twitter, icon: <FaTwitterSquare size={20} />, label: "Twitter" },
             ].map((social, idx) => (
               <Link
                 key={idx}
                 href={social.href}
                 target="_blank"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 hover:border-violet-500/50 hover:scale-110 transition-all duration-300"
+                aria-label={social.label}
+                className="group/social flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 hover:border-violet-500/50 hover:scale-110 hover:shadow-lg hover:shadow-violet-500/20 transition-all duration-300"
               >
                 {social.icon}
               </Link>
@@ -73,7 +76,7 @@ function HeroSection() {
 
         {/* Code block */}
         <div className="lg:order-2 relative animate-fade-in">
-          <div className="glass-card overflow-hidden">
+          <div className="glass-card overflow-hidden hover:border-violet-500/30 transition-colors duration-500">
             <div className="flex items-center gap-2 px-4 lg:px-6 py-4 border-b border-white/5">
               <div className="h-3 w-3 rounded-full bg-red-400/80"></div>
               <div className="h-3 w-3 rounded-full bg-yellow-400/80"></div>
@@ -156,6 +159,22 @@ function HeroSection() {
           <div className="absolute -inset-4 bg-gradient-to-r from-violet-600/10 via-pink-500/10 to-cyan-400/10 rounded-3xl blur-2xl -z-10" />
         </div>
       </div>
+
+      {/* Stats counters row */}
+      <SectionReveal className="w-full relative z-10 mt-16" delay={300}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {[
+            { end: 8, suffix: "+", label: "Projects" },
+            { end: 14, suffix: "+", label: "Skills" },
+            { end: 3, suffix: "+", label: "Years Coding" },
+            { end: 100, suffix: "%", label: "Passion" },
+          ].map((stat, idx) => (
+            <div key={idx} className="glass-card p-6 hover:border-violet-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-violet-500/5">
+              <AnimatedCounter end={stat.end} suffix={stat.suffix} label={stat.label} />
+            </div>
+          ))}
+        </div>
+      </SectionReveal>
     </section>
   );
 }

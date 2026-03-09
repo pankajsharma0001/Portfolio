@@ -21,7 +21,16 @@
 	border-radius: 2px;
 }
 
-.nav-item a:hover::after {
+.nav-item a:hover::after,
+.nav-item a.nav-active::after {
 	width: 60%;
 	left: 20%;
+}
+
+.nav-item a.nav-active {
+	color: #fff;
+}
+
+.nav-item a.nav-active::after {
+	box-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
 }

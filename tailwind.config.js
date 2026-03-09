@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+      },
       colors: {
         primary: '#0d1224',
         'primary-light': '#111836',
@@ -44,6 +48,7 @@ module.exports = {
         'slide-up': 'slide-up 0.6s ease-out',
         'fade-in': 'fade-in 0.8s ease-out',
         'gradient-shift': 'gradient-shift 8s ease infinite',
+        'shimmer': 'shimmer 2s linear infinite',
       },
       keyframes: {
         float: {
@@ -66,6 +71,10 @@ module.exports = {
           '0%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
+        },
+        'shimmer': {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
         },
       },
       backdropBlur: {

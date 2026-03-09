@@ -1,6 +1,7 @@
 // @flow strict
 import Link from 'next/link';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { FaHeart } from 'react-icons/fa';
 import { personalData } from '@/utils/data/personal-data';
 
 function Footer() {
@@ -13,8 +14,10 @@ function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Portfolio of{' '}
+          <p className="text-sm text-gray-500 flex items-center gap-1.5">
+            © {new Date().getFullYear()} Built with
+            <FaHeart className="text-pink-500 animate-pulse" size={12} />
+            by{' '}
             <Link target="_blank" href={personalData.linkedIn} className="gradient-text font-medium hover:opacity-80 transition-opacity">
               {personalData.name}
             </Link>
@@ -24,17 +27,17 @@ function Footer() {
             <Link
               target="_blank"
               href={personalData.linkedIn}
-              className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-300 no-underline"
+              className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-300 no-underline group"
             >
-              <BsLinkedin size={16} />
+              <BsLinkedin size={16} className="group-hover:text-violet-400 transition-colors" />
               <span>{`Let's Connect`}</span>
             </Link>
             <Link
               target="_blank"
               href={personalData.github}
-              className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-300 no-underline"
+              className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-300 no-underline group"
             >
-              <BsGithub size={16} />
+              <BsGithub size={16} className="group-hover:text-violet-400 transition-colors" />
               <span>Github</span>
             </Link>
           </div>

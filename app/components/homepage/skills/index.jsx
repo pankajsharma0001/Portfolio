@@ -4,11 +4,12 @@ import { skillsData } from "@/utils/data/skills";
 import { skillsImage } from "@/utils/skill-image";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import SectionReveal from "../../helper/section-reveal";
 
 function SkillCard({ skill }) {
   return (
     <div className="w-36 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-xl group relative hover:scale-110 cursor-pointer">
-      <div className="h-full w-full rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-sm group-hover:border-violet-500/50 group-hover:bg-white/[0.05] transition-all duration-500">
+      <div className="h-full w-full rounded-xl border border-white/5 bg-[#0f1535]/90 group-hover:border-violet-500/50 group-hover:bg-white/[0.05] group-hover:shadow-lg group-hover:shadow-violet-500/10 transition-all duration-500">
         <div className="flex -translate-y-[1px] justify-center">
           <div className="w-3/4">
             <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
@@ -48,43 +49,47 @@ function Skills() {
         </div>
       </div>
 
-      <div className="flex justify-center my-8 lg:py-8">
-        <h2 className="section-title">
-          <span className="bg-gradient-to-r from-violet-500 to-pink-500 bg-clip-text text-transparent">
-            Skills
-          </span>
-        </h2>
-      </div>
+      <SectionReveal>
+        <div className="flex justify-center my-8 lg:py-8">
+          <h2 className="section-title">
+            <span className="bg-gradient-to-r from-violet-500 to-pink-500 bg-clip-text text-transparent font-display">
+              Skills
+            </span>
+          </h2>
+        </div>
+      </SectionReveal>
 
-      <div className="w-full my-8 space-y-4">
-        <Marquee
-          gradient={false}
-          speed={80}
-          pauseOnHover={true}
-          pauseOnClick={true}
-          delay={0}
-          play={true}
-          direction="left"
-        >
-          {skillsData.slice(midpoint).map((skill, id) => (
-            <SkillCard key={id} skill={skill} />
-          ))}
-        </Marquee>
+      <SectionReveal delay={100}>
+        <div className="w-full my-8 space-y-4">
+          <Marquee
+            gradient={false}
+            speed={80}
+            pauseOnHover={true}
+            pauseOnClick={true}
+            delay={0}
+            play={true}
+            direction="left"
+          >
+            {skillsData.slice(midpoint).map((skill, id) => (
+              <SkillCard key={id} skill={skill} />
+            ))}
+          </Marquee>
 
-        <Marquee
-          gradient={false}
-          speed={80}
-          pauseOnHover={true}
-          pauseOnClick={true}
-          delay={0}
-          play={true}
-          direction="right"
-        >
-          {skillsData.slice(0, midpoint).map((skill, id) => (
-            <SkillCard key={id} skill={skill} />
-          ))}
-        </Marquee>
-      </div>
+          <Marquee
+            gradient={false}
+            speed={80}
+            pauseOnHover={true}
+            pauseOnClick={true}
+            delay={0}
+            play={true}
+            direction="right"
+          >
+            {skillsData.slice(0, midpoint).map((skill, id) => (
+              <SkillCard key={id} skill={skill} />
+            ))}
+          </Marquee>
+        </div>
+      </SectionReveal>
     </div>
   );
 }
